@@ -201,7 +201,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="{{ url('/guru') }}">Data Guru</a></li>
-                        <li><a href="#">Jam Guru</a></li>
+                        <li><a href="#">Data User</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
