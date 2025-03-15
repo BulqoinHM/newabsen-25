@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\GuruController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GuruController;
+use App\Http\Controllers\LoginController;
 
 
 /*
@@ -15,13 +16,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
+Route::prefix('login')->group(function () {
+    Route::get('/', [LoginController::class, 'indexlogin'])->name('login');
+    Route::post('/postLogin', [LoginController::class, 'postLogin']);
 });
 
-Route::prefix('guru')->group(function(){
-    Route::get('/', [GuruController::class, 'index']);
-    Route::post('/store', [GuruController::class, 'store']);
-    Route::post('/update/{id}', [GuruController::class, 'update']);
-    Route::get('/delete/{id}', [GuruController::class, 'delete']);
+Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    });
+
+    Route::prefix('guru')->group(function () {
+        Route::get('/', [GuruController::class, 'index']);
+        Route::post('/store', [GuruController::class, 'store']);
+        Route::post('/update/{id}', [GuruController::class, 'update']);
+        Route::get('/show/{id}', [GuruController::class, 'show']);
+        Route::get('/delete/{id}', [GuruController::class, 'delete']);
+        Route::get('/active/{id}', [GuruController::class, 'active']);
+    });
 });

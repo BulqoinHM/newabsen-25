@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dropdown;
 use App\Models\Guru;
 use App\Models\User;
+use App\Models\Dropdown;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class GuruController extends Controller
 {
@@ -15,12 +16,12 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $dropdown['Jabatan'] = Dropdown::where('kategori','Jabatan')->orderBy('nilai','asc')->get();
-        $dropdown['JK'] = Dropdown::where('kategori','JK')->orderBy('nilai','asc')->get();
-        $dropdown['Role'] = Dropdown::where('kategori','Role')->orderBy('nilai','asc')->get();
-        $datas = Guru::all();
+        $dropdown['Jabatan'] = Dropdown::where('kategori', 'Jabatan')->orderBy('nilai', 'asc')->get();
+        $dropdown['JK'] = Dropdown::where('kategori', 'JK')->orderBy('nilai', 'asc')->get();
+        $dropdown['Role'] = Dropdown::where('kategori', 'Role')->orderBy('nilai', 'asc')->get();
+        $datas = Guru::get();
 
-        return view('guru.index-g',compact('dropdown','datas'));
+        return view('guru.index-g', compact('dropdown', 'datas'));
     }
 
     /**
@@ -46,10 +47,8 @@ class GuruController extends Controller
             "password" => 'required',
             "role" => 'required',
             "foto" => 'mimes:jpeg,jpg,png',
-                    
-        ]);
 
-        DB::beginTransaction();
+        ]);
 
         $kode_guru = $request->kode_guru;
         $nama_guru = $request->nama_guru;
@@ -58,59 +57,74 @@ class GuruController extends Controller
         $jabatan = $request->jabatan;
         $notelp = $request->notelp;
         $email = $request->email;
-        $password = $request->password;
+        $password = Hash::make($request->password);
         $role = $request->role;
 
+        DB::beginTransaction();
+
+
         try {
-            if($request->hasFile('foto')){
+            if ($request->hasFile('foto')) {
                 $path_loc = $request->file('foto');
                 $url = $path_loc->move('storage/foto_guru', $path_loc->hashName());
                 $valueFoto = $url->getPath() . "/" . $url->getFilename();
-            }else{
+            } else {
                 $valueFoto = '';
             }
-                //store ke Guru
-                $storeGuru = Guru::create([
-                    'kode_guru' => $kode_guru,
-                    'nama_guru' => $nama_guru,
-                    'jk' => $jk,
-                    'tgllahir' => $tgllahir,
-                    'jabatan' => $jabatan,
-                    'notelp' => $notelp,
-                    'foto' => $valueFoto,
-                ]);
+            //store ke Guru
+            $storeGuru = Guru::create([
+                'kode_guru' => $kode_guru,
+                'nama_guru' => $nama_guru,
+                'jk' => $jk,
+                'tgllahir' => $tgllahir,
+                'jabatan' => $jabatan,
+                'notelp' => $notelp,
+                'foto' => $valueFoto,
+            ]);
 
-                $id_guru = $storeGuru->id;
-                //store ke Users
-                User::create([
-                    'name' => $nama_guru,
-                    'email' => $email,
-                    'password' => $password,
-                    'id_guru' => $id_guru,
-                    'kode_guru' => $kode_guru,
-                    'role' => $role,
-                ]);
+            $id_guru = $storeGuru->id;
+            //store ke Users
+            User::create([
+                'name' => $nama_guru,
+                'email' => $email,
+                'password' => $password,
+                'id_guru' => $id_guru,
+                'kode_guru' => $kode_guru,
+                'role' => $role,
+            ]);
 
             DB::commit();
 
             return redirect('/guru')->with('success', 'Data berhasil ditambahkan.');
         } catch (\Throwable $th) {
             //throw $th;
-   
+
             DB::rollBack();
             return redirect('/guru')->with('failed', 'Data Gagal ditambahkan.');
         }
-
-
-
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $id = decrypt($id);
+        $dropdown['Jabatan'] = Dropdown::where('kategori', 'Jabatan')->orderBy('nilai', 'asc')->get();
+        $dropdown['JK'] = Dropdown::where('kategori', 'JK')->orderBy('nilai', 'asc')->get();
+        $dropdown['Role'] = Dropdown::where('kategori', 'Role')->orderBy('nilai', 'asc')->get();
+        $data = Guru::where('guru.id', $id)
+            ->select(
+                'guru.*',
+                'users.kode_guru',
+                'users.email',
+                'users.role',
+            )
+            ->leftJoin('users', 'guru.id', 'users.id_guru')
+            ->first();
+
+        // dd($data);
+        return view('guru.detailguru', compact('data', 'dropdown'));
     }
 
     /**
@@ -126,14 +140,153 @@ class GuruController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $id = decrypt($id);
+
+        $request->validate([
+            "kode_guru" => 'required',
+            "nama_guru" => 'required',
+            "jk" => 'required',
+            "tgllahir" => 'required',
+            "jabatan" => 'required',
+            "email" => 'required',
+            "role" => 'required',
+            "foto" => 'mimes:jpeg,jpg,png',
+
+        ]);
+
+        $kode_guru = $request->kode_guru;
+        $nama_guru = $request->nama_guru;
+        $jk = $request->jk;
+        $tgllahir = $request->tgllahir;
+        $jabatan = $request->jabatan;
+        $notelp = $request->notelp;
+        $email = $request->email;
+        $password = Hash::make($request->password);
+        $role = $request->role;
+
+        DB::beginTransaction();
+
+        try {
+            if ($request->hasFile('foto')) {
+                $path_loc = $request->file('foto');
+                $url = $path_loc->move('storage/foto_guru', $path_loc->hashName());
+                $valueFoto = $url->getPath() . "/" . $url->getFilename();
+                //update ke Guru
+                $updateGuru = Guru::where('id', $id)
+                    ->update([
+                        'kode_guru' => $kode_guru,
+                        'nama_guru' => $nama_guru,
+                        'jk' => $jk,
+                        'tgllahir' => $tgllahir,
+                        'jabatan' => $jabatan,
+                        'notelp' => $notelp,
+                        'foto' => $valueFoto,
+                    ]);
+            } else {
+                //update ke Guru
+                $updateGuru = Guru::where('id', $id)
+                    ->update([
+                        'kode_guru' => $kode_guru,
+                        'nama_guru' => $nama_guru,
+                        'jk' => $jk,
+                        'tgllahir' => $tgllahir,
+                        'jabatan' => $jabatan,
+                        'notelp' => $notelp,
+                    ]);
+            }
+
+            if ($password == '') {
+                //update ke Users
+                User::where('id_guru', $id)
+                    ->update([
+                        'name' => $nama_guru,
+                        'email' => $email,
+                        'kode_guru' => $kode_guru,
+                        'role' => $role,
+                    ]);
+            } else {
+                //update ke Users
+                User::where('id_guru', $id)
+                    ->update([
+                        'name' => $nama_guru,
+                        'email' => $email,
+                        'kode_guru' => $kode_guru,
+                        'password' => $password,
+                        'role' => $role,
+                    ]);
+            }
+
+
+            DB::commit();
+
+            return redirect('/guru/show/' . encrypt($id))->with('success', 'Data berhasil diubah.');
+        } catch (\Throwable $th) {
+            //throw $th;
+
+            DB::rollBack();
+            return redirect('/guru/show/' . encrypt($id))->with('failed', 'Data Gagal diubah.');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete($id)
     {
-        //
+        $id = decrypt($id);
+        
+        DB::beginTransaction();
+
+        try{
+            $hapusGuru = Guru::where('id', $id)
+            ->update([
+                'status' => '0'
+            ]);
+            $hapusUser = User::where('id_guru', $id)
+            ->update([
+                'status' => '0'
+            ]);
+
+            DB::commit();
+
+            return redirect('/guru')->with('success', 'Guru berhasil dinonaktifkan');
+
+        }catch (\Throwable $th) {
+            //throw $th;
+
+            DB::rollBack();
+            return redirect('/guru')->with('failed', 'Guru gagal dinonaktifkan');
+        }
+        
+
+    }
+    public function active($id)
+    {
+        $id = decrypt($id);
+        
+        DB::beginTransaction();
+
+        try{
+            $hapusGuru = Guru::where('id', $id)
+            ->update([
+                'status' => '1'
+            ]);
+            $hapusUser = User::where('id_guru', $id)
+            ->update([
+                'status' => '1'
+            ]);
+
+            DB::commit();
+
+            return redirect('/guru')->with('success', 'Guru berhasil diaktifkan');
+
+        }catch (\Throwable $th) {
+            //throw $th;
+
+            DB::rollBack();
+            return redirect('/guru')->with('failed', 'Guru gagal diaktifkan');
+        }
+        
+
     }
 }

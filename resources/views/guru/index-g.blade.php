@@ -249,24 +249,33 @@ Data Guru
             <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
                 <div class="da-card">
                     <div class="da-card-photo">
-                        @if($data->foto == '')
-                        <img src="{{asset('src/images/fotonull.png')}}" alt="" />
+                        @if($data->status == '1')
+                            @if($data->foto == '')
+                            <img src="{{asset('src/images/fotonull.png')}}" alt="" />
+                            @else
+                            <img src="{{asset($data->foto)}}" alt="" />
+                            @endif
                         @else
-                        <img src="{{asset($data->foto)}}" alt="" />
+                        <img src="{{asset('src/images/cross.png')}}" alt="" />
                         @endif
+
                         <div class="da-overlay">
                             <div class="da-social">
                                 <ul class="clearfix">
                                     <li>
-                                        <a href="#"><i class="icon-copy fa fa-calendar-check-o" aria-hidden="true"></i></a>
+                                        <a href="{{url('guru/show/' . encrypt($data->id))}}"><i class="icon-copy fa fa-eye" aria-hidden="true"></i></a>
                                     </li>
+                                    @if($data->status == '1')
                                     <li>
-                                        <a href="#"><i class="icon-copy fa fa-edit" aria-hidden="true"></i></a>
+                                        <a href="{{url('guru/delete/' . encrypt($data->id))}}"><i class="icon-copy fa fa-user-times" aria-hidden="true"></i></a>
                                     </li>
+                                    @endif
+                                    @if($data->status == '0')
                                     <li>
-                                        <a href="#" data-toggle="modal" data-target="#Guru-modal{{$data->id}}"><i class="icon-copy fa fa-eye" aria-hidden="true"></i></a>
+                                        <a href="{{url('guru/active/' . encrypt($data->id))}}"><i class="icon-copy fa fa-user-plus" aria-hidden="true"></i></a>
                                     </li>
-                                    
+                                    @endif
+
                                 </ul>
                             </div>
                         </div>
