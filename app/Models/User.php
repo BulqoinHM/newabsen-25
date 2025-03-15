@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'id_guru',
+        'kode_guru',
+        'role',
+        'status',
     ];
 
     /**
