@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\DropdownController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\MapelController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,8 @@ Route::prefix('login')->group(function () {
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
+Route::get('/dashboardguru', [GuruController::class, 'dashboard']);
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('dashboard');
@@ -35,5 +39,29 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/show/{id}', [GuruController::class, 'show']);
         Route::get('/delete/{id}', [GuruController::class, 'delete']);
         Route::get('/active/{id}', [GuruController::class, 'active']);
+  
+    });
+
+    Route::prefix('dropdown')->group(function () {
+        Route::get('/', [DropdownController::class, 'index']);
+        Route::post('/store', [DropdownController::class, 'store']);
+        Route::post('/update/{id}', [DropdownController::class, 'update']);
+        Route::get('/delete/{id}', [DropdownController::class, 'delete']);
+  
+    });
+
+    Route::prefix('mapel')->group(function () {
+        Route::get('/', [MapelController::class, 'index']);
+        Route::post('/store', [MapelController::class, 'store']);
+        Route::post('/update/{id}', [MapelController::class, 'update']);
+        Route::get('/delete/{id}', [MapelController::class, 'delete']);
+  
+    });
+
+    Route::prefix('jadwal')->group(function () {
+        Route::post('/store', [ScheduleController::class, 'store']);
+        Route::post('/update/{id}', [ScheduleController::class, 'update']);
+        Route::get('/delete/{id}', [ScheduleController::class, 'delete']);
+  
     });
 });

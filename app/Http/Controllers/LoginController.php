@@ -59,8 +59,12 @@ class LoginController extends Controller
         if ($cekUser->status == '1') {
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
+                if($role == 'Guru'){
+                    return redirect()->intended('/dashboardguru');    
+                }else{
 
-                return redirect()->intended('/');
+                    return redirect()->intended('/');
+                }
             }
         } else {
             return back()->with('loginError', 'Akun anda tidak aktif');

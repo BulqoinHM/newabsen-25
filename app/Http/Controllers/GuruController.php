@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Guru;
 use App\Models\User;
+use App\Models\Mapel;
 use App\Models\Dropdown;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class GuruController extends Controller
@@ -19,11 +22,18 @@ class GuruController extends Controller
         $dropdown['Jabatan'] = Dropdown::where('kategori', 'Jabatan')->orderBy('nilai', 'asc')->get();
         $dropdown['JK'] = Dropdown::where('kategori', 'JK')->orderBy('nilai', 'asc')->get();
         $dropdown['Role'] = Dropdown::where('kategori', 'Role')->orderBy('nilai', 'asc')->get();
-        $datas = Guru::get();
 
+        $datas = Guru::get();
+  
         return view('guru.index-g', compact('dropdown', 'datas'));
     }
 
+    public function dashboard()
+    {
+       
+
+        return view('guru.dashboardguru');
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -113,6 +123,18 @@ class GuruController extends Controller
         $dropdown['Jabatan'] = Dropdown::where('kategori', 'Jabatan')->orderBy('nilai', 'asc')->get();
         $dropdown['JK'] = Dropdown::where('kategori', 'JK')->orderBy('nilai', 'asc')->get();
         $dropdown['Role'] = Dropdown::where('kategori', 'Role')->orderBy('nilai', 'asc')->get();
+        $dropdown['Hari'] = Dropdown::where('kategori', 'Hari')->orderBy('format', 'asc')->get();
+        $dropdown['Mapel'] = Mapel::orderBy('nama_mapel','asc')->get();
+        $schedules = Schedule::where('id_guru',$id)
+        ->select(
+            'schedules.*',
+            'mapel.nama_mapel',
+            'mapel.kelas',
+            'mapel.jurusan',
+        )
+        ->leftJoin('mapel','schedules.id_mapel','mapel.id')
+        ->orderBy('schedules.jam_mulai','asc')
+        ->get();
         $data = Guru::where('guru.id', $id)
             ->select(
                 'guru.*',
@@ -124,7 +146,7 @@ class GuruController extends Controller
             ->first();
 
         // dd($data);
-        return view('guru.detailguru', compact('data', 'dropdown'));
+        return view('guru.detailguru', compact('data', 'dropdown','schedules'));
     }
 
     /**
