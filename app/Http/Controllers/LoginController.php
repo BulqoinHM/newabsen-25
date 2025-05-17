@@ -26,7 +26,7 @@ class LoginController extends Controller
         $password = $request->password;
         $role = $request->role;
 
-        if ($role == 'guru') {
+        if (in_array($role, ['guru', 'staff'])) {
             $credentials = [
                 'kode_guru' => $username,
                 'password' => $password
@@ -36,7 +36,7 @@ class LoginController extends Controller
                 ->first();
             $role = $cekUser->role;
 
-            if ($role != 'Guru') {
+            if (!in_array($role, ['Guru', 'Staff'])) {
                 return back()->with('loginError', 'Role tidak valid !');
             }
         } elseif ($role == 'admin') {
@@ -60,7 +60,7 @@ class LoginController extends Controller
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
                 if($role == 'Guru'){
-                    return redirect()->intended('/dashboardguru');    
+                    return redirect()->intended('/presensi/dashboard');    
                 }else{
 
                     return redirect()->intended('/');

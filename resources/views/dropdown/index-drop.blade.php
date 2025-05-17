@@ -110,6 +110,12 @@
                                             <input class="form-control" type="text" name="nilai" />
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-md-2 col-form-label">Urutan</label>
+                                        <div class="col-sm-12 col-md-10">
+                                            <input class="form-control" type="text" name="format" />
+                                        </div>
+                                    </div>
 
                             </div>
                             <div class="modal-footer">
@@ -147,6 +153,7 @@
                                 </th>
                                 <th>Kategori</th>
                                 <th>Nilai</th>
+                                <th>Urutan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -156,6 +163,7 @@
                                     <td></td>
                                     <td>{{ $data->kategori }}</td>
                                     <td>{{ $data->nilai }}</td>
+                                    <td>{{ $data->format }}</td>
                                     <td>
 
                                         {{-- <div class="col-md-4 col-sm-12 mb-30"> --}}
@@ -247,6 +255,13 @@
                                     <div class="col-sm-12 col-md-10">
                                         <input class="form-control" type="text" name="nilai"
                                             value="{{ $data->nilai }}" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-12 col-md-2 col-form-label">Urutan</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <input class="form-control" type="text" name="format"
+                                            value="{{ $data->format }}" />
                                     </div>
                                 </div>
 

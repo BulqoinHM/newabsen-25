@@ -87,5 +87,36 @@
 			})(window, document, "script", "dataLayer", "GTM-NXZMQSS");
 		</script>
 		<!-- End Google Tag Manager -->
+
+		<style>
+			img {
+				cursor: pointer;
+				width: 400px;
+				margin-bottom: 20px;
+			}
+			#preview {
+				margin-top: 20px;
+				display: none;
+				text-align: center;
+			}
+			#preview img {
+				width: 300px;
+				border: 2px solid #444;
+				border-radius: 10px;
+				margin-bottom: 10px;
+			}
+			#retryButton {
+				padding: 10px 20px;
+				background-color: #ff6666;
+				color: white;
+				border: none;
+				border-radius: 8px;
+				cursor: pointer;
+				font-size: 16px;
+			}
+			#retryButton:hover {
+				background-color: #ff4d4d;
+			}
+		</style>
 	</head>
 	<body>

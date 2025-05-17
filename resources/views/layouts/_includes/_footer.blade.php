@@ -18,9 +18,13 @@
 		<script src="{{ asset('src/plugins/datatables/js/vfs_fonts.js') }}"></script>
 		<!-- Datatable Setting js -->
 		<script src="{{ asset('vendors/scripts/datatable-setting.js') }}"></script>
-		<!-- Google Tag Manager (noscript) -->
-
-		<!-- Google Tag Manager (noscript) -->
+		<!-- table histoy -->
+		<script src="src/plugins/apexcharts/apexcharts.min.js"></script>
+		<script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+		<script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+		<script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+		<script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+		<!--end -->
 		<noscript
 			><iframe
 				src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS"

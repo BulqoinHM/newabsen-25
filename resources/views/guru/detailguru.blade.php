@@ -116,121 +116,121 @@
                             </div>
                             <div class="profile-social">
                                 <!-- <h5 class="mb-20 h5 text-blue">Social Links</h5>
-                                    <ul class="clearfix">
-                                        <li>
-                                            <a
-                                                href="#"
-                                                class="btn"
-                                                data-bgcolor="#3b5998"
-                                                data-color="#ffffff"><i class="fa fa-facebook"></i></a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#"
-                                                class="btn"
-                                                data-bgcolor="#1da1f2"
-                                                data-color="#ffffff"><i class="fa fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#"
-                                                class="btn"
-                                                data-bgcolor="#007bb5"
-                                                data-color="#ffffff"><i class="fa fa-linkedin"></i></a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#"
-                                                class="btn"
-                                                data-bgcolor="#f46f30"
-                                                data-color="#ffffff"><i class="fa fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#"
-                                                class="btn"
-                                                data-bgcolor="#c32361"
-                                                data-color="#ffffff"><i class="fa fa-dribbble"></i></a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#"
-                                                class="btn"
-                                                data-bgcolor="#3d464d"
-                                                data-color="#ffffff"><i class="fa fa-dropbox"></i></a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#"
-                                                class="btn"
-                                                data-bgcolor="#db4437"
-                                                data-color="#ffffff"><i class="fa fa-google-plus"></i></a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#"
-                                                class="btn"
-                                                data-bgcolor="#bd081c"
-                                                data-color="#ffffff"><i class="fa fa-pinterest-p"></i></a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#"
-                                                class="btn"
-                                                data-bgcolor="#00aff0"
-                                                data-color="#ffffff"><i class="fa fa-skype"></i></a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#"
-                                                class="btn"
-                                                data-bgcolor="#00b489"
-                                                data-color="#ffffff"><i class="fa fa-vine"></i></a>
-                                        </li>
-                                    </ul> -->
+                                            <ul class="clearfix">
+                                                <li>
+                                                    <a
+                                                        href="#"
+                                                        class="btn"
+                                                        data-bgcolor="#3b5998"
+                                                        data-color="#ffffff"><i class="fa fa-facebook"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="#"
+                                                        class="btn"
+                                                        data-bgcolor="#1da1f2"
+                                                        data-color="#ffffff"><i class="fa fa-twitter"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="#"
+                                                        class="btn"
+                                                        data-bgcolor="#007bb5"
+                                                        data-color="#ffffff"><i class="fa fa-linkedin"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="#"
+                                                        class="btn"
+                                                        data-bgcolor="#f46f30"
+                                                        data-color="#ffffff"><i class="fa fa-instagram"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="#"
+                                                        class="btn"
+                                                        data-bgcolor="#c32361"
+                                                        data-color="#ffffff"><i class="fa fa-dribbble"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="#"
+                                                        class="btn"
+                                                        data-bgcolor="#3d464d"
+                                                        data-color="#ffffff"><i class="fa fa-dropbox"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="#"
+                                                        class="btn"
+                                                        data-bgcolor="#db4437"
+                                                        data-color="#ffffff"><i class="fa fa-google-plus"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="#"
+                                                        class="btn"
+                                                        data-bgcolor="#bd081c"
+                                                        data-color="#ffffff"><i class="fa fa-pinterest-p"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="#"
+                                                        class="btn"
+                                                        data-bgcolor="#00aff0"
+                                                        data-color="#ffffff"><i class="fa fa-skype"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="#"
+                                                        class="btn"
+                                                        data-bgcolor="#00b489"
+                                                        data-color="#ffffff"><i class="fa fa-vine"></i></a>
+                                                </li>
+                                            </ul> -->
                             </div>
                             <div class="profile-skills">
                                 <!-- <h5 class="mb-20 h5 text-blue">Key Skills</h5>
-                                    <h6 class="mb-5 font-14">HTML</h6>
-                                    <div class="progress mb-20" style="height: 6px">
-                                        <div
-                                            class="progress-bar"
-                                            role="progressbar"
-                                            style="width: 90%"
-                                            aria-valuenow="0"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"></div>
-                                    </div>
-                                    <h6 class="mb-5 font-14">Css</h6>
-                                    <div class="progress mb-20" style="height: 6px">
-                                        <div
-                                            class="progress-bar"
-                                            role="progressbar"
-                                            style="width: 70%"
-                                            aria-valuenow="0"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"></div>
-                                    </div>
-                                    <h6 class="mb-5 font-14">jQuery</h6>
-                                    <div class="progress mb-20" style="height: 6px">
-                                        <div
-                                            class="progress-bar"
-                                            role="progressbar"
-                                            style="width: 60%"
-                                            aria-valuenow="0"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"></div>
-                                    </div>
-                                    <h6 class="mb-5 font-14">Bootstrap</h6>
-                                    <div class="progress mb-20" style="height: 6px">
-                                        <div
-                                            class="progress-bar"
-                                            role="progressbar"
-                                            style="width: 80%"
-                                            aria-valuenow="0"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"></div>
-                                    </div> -->
+                                            <h6 class="mb-5 font-14">HTML</h6>
+                                            <div class="progress mb-20" style="height: 6px">
+                                                <div
+                                                    class="progress-bar"
+                                                    role="progressbar"
+                                                    style="width: 90%"
+                                                    aria-valuenow="0"
+                                                    aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                            <h6 class="mb-5 font-14">Css</h6>
+                                            <div class="progress mb-20" style="height: 6px">
+                                                <div
+                                                    class="progress-bar"
+                                                    role="progressbar"
+                                                    style="width: 70%"
+                                                    aria-valuenow="0"
+                                                    aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                            <h6 class="mb-5 font-14">jQuery</h6>
+                                            <div class="progress mb-20" style="height: 6px">
+                                                <div
+                                                    class="progress-bar"
+                                                    role="progressbar"
+                                                    style="width: 60%"
+                                                    aria-valuenow="0"
+                                                    aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                            <h6 class="mb-5 font-14">Bootstrap</h6>
+                                            <div class="progress mb-20" style="height: 6px">
+                                                <div
+                                                    class="progress-bar"
+                                                    role="progressbar"
+                                                    style="width: 80%"
+                                                    aria-valuenow="0"
+                                                    aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div> -->
                             </div>
                         </div>
                     </div>
@@ -239,7 +239,7 @@
                             <div class="profile-tab height-100-p">
                                 <div class="tab height-100-p">
                                     <ul class="nav nav-tabs customtab" role="tablist">
-            
+
                                         <li class="nav-item">
                                             <a class="nav-link active" data-toggle="tab" href="#tasks"
                                                 role="tab">Jadwal</a>
@@ -250,7 +250,7 @@
                                         </li>
                                     </ul>
                                     <div class="tab-content">
-                                     
+
                                         <!-- Tasks Tab start -->
                                         <div class="tab-pane fade show active" id="tasks" role="tabpanel">
                                             <div class="pd-20 profile-task-wrap">
@@ -261,13 +261,143 @@
                                                             <h5>List Jadwal</h5>
                                                         </div>
                                                         <div class="col-md-4 col-sm-12 text-right">
-                                                            <a href="task-add" data-toggle="modal"
-                                                                data-target="#task-add"
+                                                            <a href="#" data-toggle="modal" data-target="#task-add"
                                                                 class="bg-light-blue btn text-blue weight-500"><i
                                                                     class="ion-plus-round"></i> Tambah Data</a>
+                                                            <!-- add task popup start -->
+                                                            <div class="modal fade customscroll" id="task-add"
+                                                                tabindex="-1" role="dialog">
+                                                                <div class="modal-dialog modal-dialog-centered"
+                                                                    role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalLongTitle">
+                                                                                Tambah Jadwal
+                                                                            </h5>
+                                                                            <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close"
+                                                                                data-toggle="tooltip"
+                                                                                data-placement="bottom" title=""
+                                                                                data-original-title="Close Modal">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body pd-0">
+                                                                            <div class="task-list-form">
+                                                                                <ul>
+                                                                                    <li>
+                                                                                        <form
+                                                                                            action="{{ url('jadwal/store') }}"
+                                                                                            method="POST"
+                                                                                            enctype="multipart/form-data">
+                                                                                            @csrf
+                                                                                            <input type="hidden"
+                                                                                                value="{{ encrypt($data->id) }}"
+                                                                                                name="id_guru">
+                                                                                            @if (count($errors) > 0)
+                                                                                                <div class="alert alert-danger alert-dismissible fade show"
+                                                                                                    role="alert">
+                                                                                                    <ul>
+                                                                                                        <li><strong>Submit
+                                                                                                                Data
+                                                                                                                Gagal
+                                                                                                                !</strong>
+                                                                                                        </li>
+                                                                                                        @foreach ($errors->all() as $error)
+                                                                                                            <li><strong>{{ $error }}</strong>
+                                                                                                            </li>
+                                                                                                        @endforeach
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                            @endif
+                                                                                            <div class="form-group row">
+                                                                                                <label
+                                                                                                    class="col-md-4">Hari</label>
+                                                                                                <div class="col-md-8">
+                                                                                                    <select
+                                                                                                        class="form-control"
+                                                                                                        data-style="btn-outline-primary"
+                                                                                                        name="hari">
+                                                                                                        <option
+                                                                                                            selected="">
+                                                                                                            Pilih Hari
+                                                                                                        </option>
+                                                                                                        @foreach ($dropdown['Hari'] as $hari)
+                                                                                                            <option
+                                                                                                                value="{{ $hari->nilai }}">
+                                                                                                                {{ $hari->nilai }}
+                                                                                                            </option>
+                                                                                                        @endforeach
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-md-4">Jam
+                                                                                                    Mulai</label>
+                                                                                                <div class="col-md-8">
+                                                                                                    <input type="time"
+                                                                                                        name="jam_mulai"
+                                                                                                        class="form-control" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-md-4">Jam
+                                                                                                    Selesai</label>
+                                                                                                <div class="col-md-8">
+                                                                                                    <input type="time"
+                                                                                                        name="jam_selesai"
+                                                                                                        class="form-control" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group row">
+                                                                                                <label
+                                                                                                    class="col-md-4">Mapel</label>
+                                                                                                <div class="col-md-8">
+                                                                                                    <select
+                                                                                                        class="form-control"
+                                                                                                        data-style="btn-outline-primary"
+                                                                                                        name="id_mapel">
+                                                                                                        <option
+                                                                                                            selected="">
+                                                                                                            Pilih Mapel
+                                                                                                        </option>
+                                                                                                        @foreach ($dropdown['Mapel'] as $mapel)
+                                                                                                            <option
+                                                                                                                value="{{ $mapel->id }}">
+                                                                                                                {{ $mapel->nama_mapel . '/' . $mapel->kelas . '-' . $mapel->jurusan }}
+                                                                                                            </option>
+                                                                                                        @endforeach
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                    </li>
+
+                                                                                </ul>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">
+                                                                                Simpan
+                                                                            </button>
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-dismiss="modal">
+                                                                                Tutup
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <!-- add task popup End -->
                                                         </div>
                                                     </div>
-                                                    <table class="table hover multiple-select-row data-table-export nowrap">
+                                                    <table
+                                                        class="table hover multiple-select-row data-table-export nowrap">
                                                         <thead>
                                                             <tr>
                                                                 <th class="table-plus datatable-nosort">Hari</th>
@@ -284,25 +414,35 @@
                                                                     <td class="table-plus">{{ $d->hari }}</td>
                                                                     <td>{{ $d->jam_mulai }}</td>
                                                                     <td>{{ $d->jam_selesai }}</td>
-                                                                    <td>{{ $d->nama_mapel . '/' . $d->kelas . '-' . $d->jurusan }}</td>
-                                                                    <td>{{ $d->durasi . " Jam" }}</td>
+                                                                    <td>{{ $d->nama_mapel . '/' . $d->kelas . '-' . $d->jurusan }}
+                                                                    </td>
+                                                                    <td>{{ $d->durasi . ' Jam' }}</td>
                                                                     <td>
-                                                                        <a href="#"><i class="icon-copy fa fa-pencil" aria-hidden="true"
-                                                                                data-toggle="modal"
+                                                                        <a href="#"><i
+                                                                                class="icon-copy fa fa-pencil"
+                                                                                aria-hidden="true" data-toggle="modal"
                                                                                 data-target="#Jadwal-editmodal{{ $d['id'] }}"></i></a>
-                                                                        <a href="#"><i class="icon-copy fa fa-trash" aria-hidden="true"
-                                                                                data-toggle="modal"
+                                                                        <a href="#"><i class="icon-copy fa fa-trash"
+                                                                                aria-hidden="true" data-toggle="modal"
                                                                                 data-target="#Jadwal-hapusmodal{{ $d['id'] }}"></i>
                                                                         </a>
-                                                                        <div class="modal fade" id="Jadwal-hapusmodal{{ $d['id'] }}" tabindex="-1"
-                                                                            role="dialog" aria-hidden="true">
-                                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                        <div class="modal fade"
+                                                                            id="Jadwal-hapusmodal{{ $d['id'] }}"
+                                                                            tabindex="-1" role="dialog"
+                                                                            aria-hidden="true">
+                                                                            <div class="modal-dialog modal-dialog-centered"
+                                                                                role="document">
                                                                                 <div class="modal-content">
-                                                                                    <form action="{{ url('jadwal/delete/' . encrypt($d->id)) }}"
-                                                                                        method="GET" enctype="multipart/form-data">
-                                                                                        <div class="modal-body text-center font-18">
-                                                                                            <h4 class="padding-top-30 mb-30 weight-500">
-                                                                                                Anda Yakin Ingin Menghapus Data ini?
+                                                                                    <form
+                                                                                        action="{{ url('jadwal/delete/' . encrypt($d->id)) }}"
+                                                                                        method="GET"
+                                                                                        enctype="multipart/form-data">
+                                                                                        <div
+                                                                                            class="modal-body text-center font-18">
+                                                                                            <h4
+                                                                                                class="padding-top-30 mb-30 weight-500">
+                                                                                                Anda Yakin Ingin Menghapus
+                                                                                                Data ini?
                                                                                             </h4>
                                                                                             <div class="padding-bottom-30 row"
                                                                                                 style="max-width: 170px; margin: 0 auto">
@@ -310,241 +450,178 @@
                                                                                                     <button type="button"
                                                                                                         class="btn btn-secondary border-radius-100 btn-block confirmation-btn"
                                                                                                         data-dismiss="modal">
-                                                                                                        <i class="fa fa-times"></i>
+                                                                                                        <i
+                                                                                                            class="fa fa-times"></i>
                                                                                                     </button>
                                                                                                     Tidak
                                                                                                 </div>
                                                                                                 <div class="col-6">
                                                                                                     <button type="submit"
                                                                                                         class="btn btn-danger border-radius-100 btn-block confirmation-btn">
-                                                                                                        <i class="fa fa-check"></i>
+                                                                                                        <i
+                                                                                                            class="fa fa-check"></i>
                                                                                                     </button>
                                                                                                     Ya
                                                                                                 </div>
                                                                                     </form>
                                                                                 </div>
                                                                             </div>
-                                
+
                                                                         </div>
                                                                     </td>
                                                                 </tr>
-                                                                {{-- <!-- Modal Edit Mapel -->
-                                                                <div class="modal fade bs-example-modal-lg" data-backdrop="static"
-                                                                    id="Mapel-editmodal{{ $d['id'] }}" tabindex="-1" role="dialog"
-                                                                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                                                                <!-- Modal Edit Mapel -->
+                                                                <div class="modal fade bs-example-modal-lg"
+                                                                    data-backdrop="static"
+                                                                    id="Jadwal-editmodal{{ $d['id'] }}"
+                                                                    tabindex="-1" role="dialog"
+                                                                    aria-labelledby="myLargeModalLabel"
+                                                                    aria-hidden="true">
+                                                                    <div
+                                                                        class="modal-dialog modal-lg modal-dialog-centered">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
-                                                                                <h4 class="modal-title" id="myLargeModalLabel">
-                                                                                    Form Edit Data Mapel
+                                                                                <h4 class="modal-title"
+                                                                                    id="myLargeModalLabel">
+                                                                                    Form Edit Data Jadwal
                                                                                 </h4>
-                                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                                <button type="button" class="close"
+                                                                                    data-dismiss="modal"
                                                                                     aria-hidden="true">
                                                                                     ×
                                                                                 </button>
                                                                             </div>
-                                                                            <div class="modal-body">
-                                                                                @if (count($errors) > 0)
-                                                                                    <div class="alert alert-danger alert-dismissible" role="alert">
-                                                                                        <ul>
-                                                                                            <li><strong>Submit Data Gagal !</strong></li>
-                                                                                            @foreach ($errors->all() as $error)
-                                                                                                <li><strong>{{ $error }}</strong></li>
-                                                                                            @endforeach
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                @endif
-                                                                                <form action="{{ url('mapel/update/' . encrypt($d->id)) }}"
-                                                                                    method="POST" enctype="multipart/form-data">
-                                                                                    @csrf
-                                                                                    <div class="form-group row">
-                                                                                        <label class="col-sm-12 col-md-2 col-form-label">Kode Mapel</label>
-                                                                                        <div class="col-sm-12 col-md-10">
-                                                                                            <input class="form-control" type="text" name="kode_mapel"
-                                                                                                value="{{ $d->kode_mapel }}" />
-                                                                                        </div>
-                                                                                    </div>
-                                                                              
-                                                                                    <div class="form-group row">
-                                                                                        <label class="col-sm-12 col-md-2 col-form-label">Nama Mapel</label>
-                                                                                        <div class="col-sm-12 col-md-10">
-                                                                                            <select class="custom-select col-12" name="nama_mapel">
-                                                                                                <option selected="">Pilih Mapel</option>
-                                                                                                @foreach($dropdown['Mapel'] as $mapel)
-                                                                                                <option value="{{ $mapel->nilai }}" @if($mapel->nilai == $d->nama_mapel) selected @endif>{{ $mapel->nilai }}</option>
-                                                                                                @endforeach
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label class="col-sm-12 col-md-2 col-form-label">Kelas</label>
-                                                                                        <div class="col-sm-12 col-md-10">
-                                                                                            <select class="custom-select col-12" name="kelas">
-                                                                                                <option selected="">Pilih Kelas</option>
-                                                                                                @foreach($dropdown['Kelas'] as $kelas)
-                                                                                                <option value="{{ $kelas->nilai }}" @if($kelas->nilai == $d->kelas) selected @endif>{{ $kelas->nilai }}</option>
-                                                                                                @endforeach
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label class="col-sm-12 col-md-2 col-form-label">Jurusan</label>
-                                                                                        <div class="col-sm-12 col-md-10">
-                                                                                            <select class="custom-select col-12" name="jurusan">
-                                                                                                <option selected="">Pilih Jurusan</option>
-                                                                                                @foreach($dropdown['Jurusan'] as $jurusan)
-                                                                                                <option value="{{ $jurusan->nilai }}" @if($jurusan->nilai == $d->jurusan) selected @endif>{{ $jurusan->nilai }}</option>
-                                                                                                @endforeach
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                         
-                                
+                                                                            <div class="modal-body pd-0">
+                                                                                <div class="task-list-form">
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <form
+                                                                                                action="{{ url('jadwal/update/' . encrypt($d->id)) }}"
+                                                                                                method="GET"
+                                                                                                enctype="multipart/form-data">
+                                                                                                @csrf
+                                                                                                <input type="hidden"
+                                                                                                    value="{{ encrypt($d->id_guru) }}"
+                                                                                                    name="id_guru">
+                                                                                                @if (count($errors) > 0)
+                                                                                                    <div class="alert alert-danger alert-dismissible fade show"
+                                                                                                        role="alert">
+                                                                                                        <ul>
+                                                                                                            <li><strong>Submit
+                                                                                                                    Data
+                                                                                                                    Gagal
+                                                                                                                    !</strong>
+                                                                                                            </li>
+                                                                                                            @foreach ($errors->all() as $error)
+                                                                                                                <li><strong>{{ $error }}</strong>
+                                                                                                                </li>
+                                                                                                            @endforeach
+                                                                                                        </ul>
+                                                                                                    </div>
+                                                                                                @endif
+                                                                                                <div
+                                                                                                    class="form-group row">
+                                                                                                    <label
+                                                                                                        class="col-md-4">Hari</label>
+                                                                                                    <div class="col-md-8">
+                                                                                                        <select
+                                                                                                            class="form-control"
+                                                                                                            data-style="btn-outline-primary"
+                                                                                                            name="hari">
+                                                                                                            <option
+                                                                                                                selected="">
+                                                                                                                Pilih Hari
+                                                                                                            </option>
+                                                                                                            @foreach ($dropdown['Hari'] as $hari)
+                                                                                                                <option
+                                                                                                                    value="{{ $hari->nilai }}"
+                                                                                                                    @if ($hari->nilai == $d->hari) selected @endif>
+                                                                                                                    {{ $hari->nilai }}
+                                                                                                                </option>
+                                                                                                            @endforeach
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="form-group row">
+                                                                                                    <label
+                                                                                                        class="col-md-4">Jam
+                                                                                                        Mulai</label>
+                                                                                                    <div class="col-md-8">
+                                                                                                        <input
+                                                                                                            type="time"
+                                                                                                            name="jam_mulai"
+                                                                                                            class="form-control"
+                                                                                                            value="{{ $d->jam_mulai }}" />
+
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="form-group row">
+                                                                                                    <label
+                                                                                                        class="col-md-4">Jam
+                                                                                                        Selesai</label>
+                                                                                                    <div class="col-md-8">
+                                                                                                        <input
+                                                                                                            type="time"
+                                                                                                            name="jam_selesai"
+                                                                                                            class="form-control"
+                                                                                                            value="{{ $d->jam_selesai }}" />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="form-group row">
+                                                                                                    <label
+                                                                                                        class="col-md-4">Mapel</label>
+                                                                                                    <div class="col-md-8">
+                                                                                                        <select
+                                                                                                            class="form-control"
+                                                                                                            data-style="btn-outline-primary"
+                                                                                                            name="id_mapel">
+                                                                                                            <option
+                                                                                                                selected="">
+                                                                                                                Pilih Mapel
+                                                                                                            </option>
+                                                                                                            @foreach ($dropdown['Mapel'] as $mapel)
+                                                                                                                <option
+                                                                                                                    value="{{ $mapel->id }}"
+                                                                                                                    @if (
+                                                                                                                        $mapel->nama_mapel . '/' . $mapel->kelas . '-' . $mapel->jurusan ==
+                                                                                                                            $d->nama_mapel . '/' . $d->kelas . '-' . $d->jurusan) selected @endif>
+                                                                                                                    {{ $mapel->nama_mapel . '/' . $mapel->kelas . '-' . $mapel->jurusan }}
+                                                                                                                </option>
+                                                                                                            @endforeach
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                        </li>
+
+                                                                                    </ul>
+                                                                                </div>
+
                                                                             </div>
                                                                             <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary">
+                                                                                    Simpan
+                                                                                </button>
+                                                                                <button type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-dismiss="modal">
                                                                                     Tutup
                                                                                 </button>
-                                                                                <button type="submit" class="btn btn-primary">
-                                                                                    Ubah
-                                                                                </button>
-                                                                                </form>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                
-                                                                <!-- End Modal Edit Mapel --> --}}
-                                                            @endforeach 
+
+                                                                <!-- End Modal Edit Jadwal -->
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                                     <!-- Close Task start -->
-                                                    <!-- add task popup start -->
-                                                    <div class="modal fade customscroll" id="task-add" tabindex="-1"
-                                                        role="dialog">
-                                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLongTitle">
-                                                                        Tambah Jadwal
-                                                                    </h5>
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal" aria-label="Close"
-                                                                        data-toggle="tooltip" data-placement="bottom"
-                                                                        title="" data-original-title="Close Modal">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body pd-0">
-                                                                    <div class="task-list-form">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <form action="{{ url('jadwal/store') }}"
-                                                                                    method="POST"
-                                                                                    enctype="multipart/form-data">
-                                                                                    @csrf
-                                                                                    <input type="hidden"
-                                                                                        value="{{ encrypt($data->id) }}"
-                                                                                        name="id_guru">
-                                                                                    @if (count($errors) > 0)
-                                                                                        <div class="alert alert-danger alert-dismissible fade show"
-                                                                                            role="alert">
-                                                                                            <ul>
-                                                                                                <li><strong>Submit Data
-                                                                                                        Gagal !</strong>
-                                                                                                </li>
-                                                                                                @foreach ($errors->all() as $error)
-                                                                                                    <li><strong>{{ $error }}</strong>
-                                                                                                    </li>
-                                                                                                @endforeach
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    @endif
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-md-4">Hari</label>
-                                                                                        <div class="col-md-8">
-                                                                                            <select
-                                                                                                class="selectpicker form-control"
-                                                                                                data-style="btn-outline-primary"
-                                                                                                title="Not Chosen"
-                                                                                                multiple=""
-                                                                                                name="hari"
-                                                                                                data-selected-text-format="count"
-                                                                                                data-count-selected-text="{0} people selected">
-                                                                                                <option selected="">
-                                                                                                    Pilih Hari</option>
-                                                                                                @foreach ($dropdown['Hari'] as $hari)
-                                                                                                    <option
-                                                                                                        value="{{ $hari->nilai }}">
-                                                                                                        {{ $hari->nilai }}
-                                                                                                    </option>
-                                                                                                @endforeach
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label class="col-md-4">Jam
-                                                                                            Mulai</label>
-                                                                                        <div class="col-md-8">
-                                                                                            <input type="time"
-                                                                                                name="jam_mulai"
-                                                                                                class="form-control" />
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label class="col-md-4">Jam
-                                                                                            Selesai</label>
-                                                                                        <div class="col-md-8">
-                                                                                            <input type="time"
-                                                                                                name="jam_selesai"
-                                                                                                class="form-control" />
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="form-group row">
-                                                                                        <label
-                                                                                            class="col-md-4">Mapel</label>
-                                                                                        <div class="col-md-8">
-                                                                                            <select
-                                                                                                class="selectpicker form-control"
-                                                                                                data-style="btn-outline-primary"
-                                                                                                title="Not Chosen"
-                                                                                                multiple=""
-                                                                                                name="id_mapel"
-                                                                                                data-selected-text-format="count"
-                                                                                                data-count-selected-text="{0} people selected">
-                                                                                                <option selected="">
-                                                                                                    Pilih Mapel</option>
-                                                                                                @foreach ($dropdown['Mapel'] as $mapel)
-                                                                                                    <option
-                                                                                                        value="{{ $mapel->id }}">
-                                                                                                        {{ $mapel->nama_mapel . '/' . $mapel->kelas . '-' . $mapel->jurusan }}
-                                                                                                    </option>
-                                                                                                @endforeach
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
 
-                                                                            </li>
-
-                                                                        </ul>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="submit" class="btn btn-primary">
-                                                                        Simpan
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">
-                                                                        Tutup
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <!-- add task popup End -->
                                                 </div>
                                             </div>
                                         </div>

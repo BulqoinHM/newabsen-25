@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\ScheduleController;
 
 /*
@@ -25,13 +26,14 @@ Route::prefix('login')->group(function () {
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::get('/dashboardguru', [GuruController::class, 'dashboard']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('dashboard');
     });
-
+    
+    // Route::get('/dashboardguru', [GuruController::class, 'dashboard']);
+    
     Route::prefix('guru')->group(function () {
         Route::get('/', [GuruController::class, 'index']);
         Route::post('/store', [GuruController::class, 'store']);
@@ -60,8 +62,26 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('jadwal')->group(function () {
         Route::post('/store', [ScheduleController::class, 'store']);
-        Route::post('/update/{id}', [ScheduleController::class, 'update']);
+        Route::get('/update/{id}', [ScheduleController::class, 'update']);
         Route::get('/delete/{id}', [ScheduleController::class, 'delete']);
+  
+    });
+
+    Route::prefix('presensi')->group(function () {
+        Route::get('/dashboard', [PresensiController::class, 'index']);
+        Route::post('/masuk', [PresensiController::class, 'absenMasuk']);
+        Route::post('/keluar', [PresensiController::class, 'absenKeluar']);
+        Route::post('/keluarawal', [PresensiController::class, 'absenKeluarAwal']);
+        // Route::post('/update/{id}', [ScheduleController::class, 'update']);
+        // Route::get('/delete/{id}', [ScheduleController::class, 'delete']);
+  
+    });
+
+     Route::prefix('tes')->group(function () {
+        Route::get('/', [PresensiController::class, 'tes']);
+        // Route::post('/store', [ScheduleController::class, 'store']);
+        // Route::post('/update/{id}', [ScheduleController::class, 'update']);
+        // Route::get('/delete/{id}', [ScheduleController::class, 'delete']);
   
     });
 });

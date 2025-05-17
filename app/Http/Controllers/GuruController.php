@@ -28,12 +28,12 @@ class GuruController extends Controller
         return view('guru.index-g', compact('dropdown', 'datas'));
     }
 
-    public function dashboard()
-    {
+    // public function dashboard()
+    // {
        
 
-        return view('guru.dashboardguru');
-    }
+    //     return view('guru.dashboardpresensi');
+    // }
     /**
      * Show the form for creating a new resource.
      */
@@ -133,6 +133,7 @@ class GuruController extends Controller
             'mapel.jurusan',
         )
         ->leftJoin('mapel','schedules.id_mapel','mapel.id')
+        ->orderBy('schedules.formathari','asc')
         ->orderBy('schedules.jam_mulai','asc')
         ->get();
         $data = Guru::where('guru.id', $id)
@@ -145,7 +146,7 @@ class GuruController extends Controller
             ->leftJoin('users', 'guru.id', 'users.id_guru')
             ->first();
 
-        // dd($data);
+        // dd($schedules, $data);
         return view('guru.detailguru', compact('data', 'dropdown','schedules'));
     }
 

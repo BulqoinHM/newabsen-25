@@ -21,12 +21,14 @@ class DropdownController extends Controller
         $request->validate([
             "kategori" => 'required',
             "nilai" => 'required',
+            "format" => 'required',
 
 
         ]);
 
         $kategori = $request->kategori;
         $nilai = $request->nilai;
+        $format = $request->format;
 
         DB::beginTransaction();
 
@@ -36,6 +38,7 @@ class DropdownController extends Controller
             Dropdown::create([
                 'kategori' => $kategori,
                 'nilai' => $nilai,
+                'format' => $format,
 
             ]);
 
@@ -57,11 +60,13 @@ class DropdownController extends Controller
         $request->validate([
             "kategori" => 'required',
             "nilai" => 'required',
+            "format" => 'required',
 
         ]);
 
         $kategori = $request->kategori;
         $nilai = $request->nilai;
+        $format = $request->format;
 
         DB::beginTransaction();
 
@@ -70,6 +75,7 @@ class DropdownController extends Controller
                 ->update([
                     'kategori' => $kategori,
                     'nilai' => $nilai,
+                    'format' => $format,
                 ]);
             DB::commit();
 

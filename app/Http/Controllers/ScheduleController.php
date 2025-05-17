@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rule;
+use App\Models\Dropdown;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -51,7 +52,9 @@ class ScheduleController extends Controller
         $selisih = strtotime($jam_selesai) - strtotime($jam_mulai);
         $selisihmenit = $selisih / $pembagi;
         $durasi = $selisihmenit / 60;
-   
+        // cari format hari
+        $formathari = Dropdown::where('nilai', $hari)->value('format');
+       
         DB::beginTransaction();
 
         try {
@@ -59,6 +62,7 @@ class ScheduleController extends Controller
             Schedule::create([
                 'id_guru' => $id_guru,
                 'hari' => $hari,
+                'formathari' => $formathari,
                 'jam_mulai' => $jam_mulai,
                 'jam_selesai' => $jam_selesai,
                 'id_mapel' => $id_mapel,
@@ -97,7 +101,57 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+        // dd($request->all());
+        $request->validate([
+            "hari" => 'required',
+            "jam_mulai" => 'required|before:jam_selesai',
+            "jam_selesai" => 'required',
+            "id_mapel" => 'required',
+
+
+        ],[
+            'jam_mulai.before' => 'Jam Mulai Harus Sebelum Jam Selesai',
+        ]);
+
+        $id_schedule = decrypt($id); 
+        $id_guru = $request->id_guru;
+        $hari = $request->hari;
+        $jam_mulai = $request->jam_mulai;
+        $jam_selesai = $request->jam_selesai;
+        $id_mapel = $request->id_mapel;
+        $rule = Rule::where('rule_name','SatJam')->first();
+        $pembagi = $rule->rule_value;
+        $selisih = strtotime($jam_selesai) - strtotime($jam_mulai);
+        $selisihmenit = $selisih / $pembagi;
+        $durasi = $selisihmenit / 60;
+        // cari format hari
+        $formathari = Dropdown::where('nilai', $hari)->value('format');
+       
+   
+        DB::beginTransaction();
+
+        try {
+            //store ke Schedule
+            Schedule::where('id', $id_schedule)
+            ->update([
+                'hari' => $hari,
+                'formathari' => $formathari,
+                'jam_mulai' => $jam_mulai,
+                'jam_selesai' => $jam_selesai,
+                'id_mapel' => $id_mapel,
+                'durasi' => $durasi,
+            ]);
+
+            DB::commit();
+
+            return redirect('/guru/show/' . $id_guru)->with('success', 'Data berhasil ditambahkan.');
+        } catch (\Throwable $th) {
+            //throw $th;
+            // dd($th);
+            DB::rollBack();
+            return redirect('/guru/show/' . $id_guru)->with('failed', 'Data Gagal ditambahkan.');
+        }
     }
 
     /**

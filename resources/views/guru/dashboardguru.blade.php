@@ -2,13 +2,23 @@
 
 @section('content')
     <div class="container mx-auto p-4">
-        <div class="bg-blue-600 text-white p-4 rounded-lg flex items-center">
-            <img src="{{ asset('src/images/fotonull.png') }}" alt="Profile"
-                class="w-12 h-12 rounded-full border-2 border-white mr-4">
-            <div>
-                <h1 class="text-lg font-semibold">Nama guru</h1>
-                <p class="text-sm">Staffsus</p>
+        <div class="flex items-center justify-between bg-blue-600 p-4 rounded-lg">
+            <!-- Profil Guru -->
+            <div class="flex items-center text-white space-x-3">
+                <img src="{{ asset('src/images/fotonull.png') }}" alt="Avatar" class="h-10 w-10 rounded-full">
+                <div>
+                    <p class="font-semibold text-lg">Nama Guru</p>
+                    <p class="text-sm">Staffsus</p>
+                </div>
             </div>
+        
+            <!-- Tombol Logout -->
+            <a href="{{ url('/logout') }}" class="flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-300 text-red-600 font-medium rounded-lg transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6-8v16" />
+                </svg>
+                <span class="hidden md:inline">Logout</span>
+            </a>
         </div>
 
         <div class="bg-white p-4 rounded-lg shadow-md mt-4">
@@ -42,7 +52,7 @@
         </div>
         <div class="grid grid-cols-2 gap-4 mt-2">
             <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
-                <i class="fa-solid fa-wallet " ></i>
+                <i class="fa-solid fa-wallet "></i>
                 <span>Bonus Bulan Ini</span>
                 <span class="text-red-500">Rp 0</span>
             </div>
