@@ -164,7 +164,7 @@ class GuruController extends Controller
     public function update(Request $request, string $id)
     {
         $id = decrypt($id);
-
+      
         $request->validate([
             "kode_guru" => 'required',
             "nama_guru" => 'required',
@@ -187,6 +187,7 @@ class GuruController extends Controller
         $password = Hash::make($request->password);
         $role = $request->role;
 
+      
         DB::beginTransaction();
 
         try {
@@ -218,7 +219,7 @@ class GuruController extends Controller
                     ]);
             }
 
-            if ($password == '') {
+            if ($request->password == '') {
                 //update ke Users
                 User::where('id_guru', $id)
                     ->update([
@@ -242,7 +243,7 @@ class GuruController extends Controller
 
             DB::commit();
 
-            return redirect('/guru/show/' . encrypt($id))->with('success', 'Data berhasil diubah.');
+            return redirect('/guru/show/' . encrypt($id))->with('success', 'Profil berhasil diubah.');
         } catch (\Throwable $th) {
             //throw $th;
 

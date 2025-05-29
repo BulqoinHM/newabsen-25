@@ -7,6 +7,7 @@ use App\Models\Dropdown;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ScheduleController extends Controller
 {
@@ -71,7 +72,8 @@ class ScheduleController extends Controller
 
             DB::commit();
 
-            return redirect('/guru/show/' . encrypt($id_guru))->with('success', 'Data berhasil ditambahkan.');
+            Alert::success('Halo !', 'Jadwal Berhasil Ditambahkan');
+            return redirect('/guru/show/' . encrypt($id_guru));
         } catch (\Throwable $th) {
             //throw $th;
             dd($th);
@@ -102,7 +104,6 @@ class ScheduleController extends Controller
     public function update(Request $request, string $id)
     {
         
-        // dd($request->all());
         $request->validate([
             "hari" => 'required',
             "jam_mulai" => 'required|before:jam_selesai',
@@ -145,7 +146,7 @@ class ScheduleController extends Controller
 
             DB::commit();
 
-            return redirect('/guru/show/' . $id_guru)->with('success', 'Data berhasil ditambahkan.');
+            return redirect('/guru/show/' . $id_guru)->with('success', 'Jadwal berhasil diubah.');
         } catch (\Throwable $th) {
             //throw $th;
             // dd($th);

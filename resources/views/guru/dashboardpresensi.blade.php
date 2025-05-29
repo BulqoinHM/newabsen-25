@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    @session('failed')
+    @include('sweetalert::alert')
+    {{-- @session('failed')
         <div class="alert alert-danger" role="alert">
             {{ session('failed') }}
         </div>
@@ -14,7 +15,8 @@
         <div class="alert alert-success" role="alert">
             {{ session('success') }}
         </div>
-    @endsession
+    @endsession --}}
+
     <div class="pd-Ltr-20">
         <div class="card-box pd-20 height-100-p mb-30">
             <div class="row align-items-center">
@@ -55,7 +57,8 @@
                                 </div>
                             </div>
                             <div class="max-width-150">
-                                <img src="{{ asset($foto_masuk) }}" alt="" class="rounded-circle"  style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
+                                <img src="{{ asset($foto_masuk) }}" alt="" class="rounded-circle"
+                                    style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
                             </div>
 
                         </div>
@@ -87,14 +90,16 @@
                                 <div class="text-white">
                                     <div class="font-14">{{ \Carbon\Carbon::now()->format('d-m-Y') }}</div>
                                     @if (is_null($foto_keluar))
-                                        <div class="text-danger mb-2">Belum ada foto keluar</div>
+                                        <div class="text-danger mb-2">Anda Belum Melakukan Absen Pulang</div>
                                     @else
-                                         <div class="font-24 weight-500" id="clock">{{ date('H:i:s', strtotime($jam_keluar)) }}
+                                        <div class="font-24 weight-500" id="clock">
+                                            {{ date('H:i:s', strtotime($jam_keluar)) }}
                                     @endif
                                 </div>
                             </div>
                             <div class="max-width-150">
-                                <img src="{{ asset($foto_keluar) }}" alt="" class="rounded-circle"  style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
+                                <img src="{{ asset($foto_keluar) }}" alt="" class="rounded-circle"
+                                    style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
                             </div>
 
                         </div>
@@ -122,81 +127,78 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-end">
                     <div class="text-white">
-                        <div class="font-14">{{ \Carbon\Carbon::now()->format('d-m-Y') }}
-                        </div>
-                        <div class="font-24 weight-500" id="clock">00:00:00
-                        </div>
+                        <div class="font-14">{{ \Carbon\Carbon::now()->format('d-m-Y') }}</div>
+                        <div class="font-24 weight-500" id="clock">00:00:00</div>
+                    </div>
+                </div>
+
+            </div>
+            {{-- akhir sebelum presensi --}}
+            @endif
+
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-30">
+                <div class="card-box pd-30 pt-10 height-100-p">
+                    <h2 class="mb-30 h4">Pendapatan Hari Ini</h2>
+                    <div class="browser-visits">
+                        <ul>
+                            <li class="d-flex flex-wrap align-items-center">
+                                <div class="icon">
+                                    {{-- <img src="vendors/images/chrome.png" alt="" /> --}}
+                                    <i class="icon-copy fa fa-money" aria-hidden="true"></i>
+                                </div>
+                                <div class="browser-name">Bonus Hari ini</div>
+                                <div class="visit">
+                                    <span class="badge badge-pill badge-primary">Rp. 10.000</span>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-wrap align-items-center">
+                                <div class="icon">
+                                    {{-- <img src="vendors/images/firefox.png" alt="" /> --}}
+                                    <i class="icon-copy fa fa-money" aria-hidden="true"></i>
+                                </div>
+                                <div class="browser-name">Transport Hari ini</div>
+                                <div class="visit">
+                                    <span class="badge badge-pill badge-secondary">Rp. 50.000</span>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-
-        </div>
-        {{-- akhir sebelum presensi --}}
-        @endif
-
-    </div>
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-30">
-            <div class="card-box pd-30 pt-10 height-100-p">
-                <h2 class="mb-30 h4">Pendapatan Hari Ini</h2>
-                <div class="browser-visits">
-                    <ul>
-                        <li class="d-flex flex-wrap align-items-center">
-                            <div class="icon">
-                                {{-- <img src="vendors/images/chrome.png" alt="" /> --}}
-                                <i class="icon-copy fa fa-money" aria-hidden="true"></i>
-                            </div>
-                            <div class="browser-name">Bonus Hari ini</div>
-                            <div class="visit">
-                                <span class="badge badge-pill badge-primary">Rp. 10.000</span>
-                            </div>
-                        </li>
-                        <li class="d-flex flex-wrap align-items-center">
-                            <div class="icon">
-                                {{-- <img src="vendors/images/firefox.png" alt="" /> --}}
-                                <i class="icon-copy fa fa-money" aria-hidden="true"></i>
-                            </div>
-                            <div class="browser-name">Transport Hari ini</div>
-                            <div class="visit">
-                                <span class="badge badge-pill badge-secondary">Rp. 50.000</span>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-30">
+                <div class="card-box pd-30 pt-10 height-100-p">
+                    <h2 class="mb-30 h4">Pendapatan Bulan Ini</h2>
+                    <div class="browser-visits">
+                        <ul>
+                            <li class="d-flex flex-wrap align-items-center">
+                                <div class="icon">
+                                    {{-- <img src="vendors/images/chrome.png" alt="" /> --}}
+                                    <span class="icon-copy ti-wallet"></span>
+                                </div>
+                                <div class="browser-name">Bonus Bulan ini</div>
+                                <div class="visit">
+                                    <span class="badge badge-pill badge-warning">Rp. 10.000</span>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-wrap align-items-center">
+                                <div class="icon">
+                                    {{-- <img src="vendors/images/firefox.png" alt="" /> --}}
+                                    <span class="icon-copy ti-wallet"></span>
+                                </div>
+                                <div class="browser-name">Transport Bulan ini</div>
+                                <div class="visit">
+                                    <span class="badge badge-pill badge-success">Rp. 50.000</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-30">
-            <div class="card-box pd-30 pt-10 height-100-p">
-                <h2 class="mb-30 h4">Pendapatan Bulan Ini</h2>
-                <div class="browser-visits">
-                    <ul>
-                        <li class="d-flex flex-wrap align-items-center">
-                            <div class="icon">
-                                {{-- <img src="vendors/images/chrome.png" alt="" /> --}}
-                                <span class="icon-copy ti-wallet"></span>
-                            </div>
-                            <div class="browser-name">Bonus Bulan ini</div>
-                            <div class="visit">
-                                <span class="badge badge-pill badge-warning">Rp. 10.000</span>
-                            </div>
-                        </li>
-                        <li class="d-flex flex-wrap align-items-center">
-                            <div class="icon">
-                                {{-- <img src="vendors/images/firefox.png" alt="" /> --}}
-                                <span class="icon-copy ti-wallet"></span>
-                            </div>
-                            <div class="browser-name">Transport Bulan ini</div>
-                            <div class="visit">
-                                <span class="badge badge-pill badge-success">Rp. 50.000</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    @include('layouts._includes._footersection')
+        @include('layouts._includes._footersection')
 
     </div>
     <script>

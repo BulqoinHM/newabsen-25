@@ -26,7 +26,7 @@ class LoginController extends Controller
         $password = $request->password;
         $role = $request->role;
 
-        if (in_array($role, ['guru', 'staff'])) {
+        if ($role == 'guru') {
             $credentials = [
                 'kode_guru' => $username,
                 'password' => $password
@@ -34,12 +34,14 @@ class LoginController extends Controller
             $cekUser = User::where('kode_guru', $username)
                 ->orWhere('email', $username)
                 ->first();
-            $role = $cekUser->role;
-
-            if (!in_array($role, ['Guru', 'Staff'])) {
+            $roleCheck = $cekUser->role;
+            
+            if ($roleCheck != 'Guru' && $roleCheck != 'Staff') {
                 return back()->with('loginError', 'Role tidak valid !');
             }
-        } elseif ($role == 'admin') {
+
+        } 
+        if ($role == 'admin') {
             $credentials = [
                 'email' => $username,
                 'password' => $password
@@ -47,22 +49,20 @@ class LoginController extends Controller
             $cekUser = User::where('kode_guru', $username)
                 ->orWhere('email', $username)
                 ->first();
-            $role = $cekUser->role;
-
-            if ($role != 'Admin') {
+            $roleCheck = $cekUser->role;
+      
+            if ($roleCheck != 'Admin') {
                 return back()->with('loginError', 'Role tidak valid !');
             }
-        } else {
-            return back()->with('loginError', 'Role tidak valid !');
-        }
-    
+        } 
+   
         if ($cekUser->status == '1') {
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
-                if($role == 'Guru'){
+                if($roleCheck == 'Guru' || $roleCheck =='Staff'){
                     return redirect()->intended('/presensi/dashboard');    
-                }else{
-
+                }
+                else{
                     return redirect()->intended('/');
                 }
             }

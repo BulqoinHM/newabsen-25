@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\Rule;
 use App\Models\User;
 use App\Models\Presence;
 use App\Models\Schedule;
@@ -11,6 +12,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PresensiController extends Controller
 {
@@ -42,7 +44,7 @@ class PresensiController extends Controller
 
 
 
-        return view('guru.dashboardpresensi', compact('jam_masuk', 'jam_keluar','foto_masuk','foto_keluar','status',));
+        return view('guru.dashboardpresensi', compact('jam_masuk', 'jam_keluar', 'foto_masuk', 'foto_keluar', 'status',));
     }
     public function tes()
     {
@@ -75,7 +77,8 @@ class PresensiController extends Controller
             ->count();
         // 2. jika ada bisa absen jika tidak ada tidak bisa absen
         if ($cekJadwal == '0') {
-            return redirect('/presensi/dashboard')->with('failed', 'Anda tidak ada jadwal hari ini.');
+            Alert::toast('Maaf Anda Tidak Ada Jadwal Hari Ini!', 'error');
+            return redirect('/presensi/dashboard');
         }
 
         DB::beginTransaction();
@@ -95,19 +98,21 @@ class PresensiController extends Controller
                 'jam_masuk' => $jam_masuk,
                 'foto_masuk' => $valueFoto,
                 'status' => '1',
-                
+
 
             ]);
 
 
             DB::commit();
 
-            return redirect('/presensi/dashboard')->with('success', 'Berhasil Absen Masuk');
+            Alert::toast('Anda berhasil absen datang!', 'success');
+            return redirect('/presensi/dashboard');
         } catch (\Throwable $th) {
             //throw $th;
 
             DB::rollBack();
-            return redirect('/presensi/dashboard')->with('failed', 'Data Gagal ditambahkan.');
+            Alert::toast('Data Gagal Ditambahkan !', 'error');
+            return redirect('/presensi/dashboard');
         }
     }
 
@@ -121,7 +126,8 @@ class PresensiController extends Controller
 
         $id_guru = Auth::user()->id_guru;
         $jam_masuk = $request->jam_masuk;
-        $jam_keluar = now();
+        $jam_keluar = now()->format('H:i:s');
+        $dateNow = now();
 
         // 
         Carbon::setLocale('id');
@@ -132,8 +138,10 @@ class PresensiController extends Controller
             ->orderBy('id', 'DESC')
             ->first();
         $jam_selesai = $cekJadwal->jam_selesai;
+        // dd($jam_keluar, $jam_selesai);
         // 2. jika ada bisa absen jika tidak ada tidak bisa absen
         if ($jam_keluar < $jam_selesai) {
+
             if ($request->hasFile('foto_keluar')) {
                 $path_loc = $request->file('foto_keluar');
                 $url = $path_loc->move('storage/presensi_keluar', $path_loc->hashName());
@@ -142,12 +150,12 @@ class PresensiController extends Controller
                 $valueFoto = '';
             }
             return view('guru.absenkeluarawal')->with([
-                'valueFoto'=>$valueFoto,
-                'jam_masuk'=>$jam_masuk
+                'valueFoto' => $valueFoto,
+                'jam_masuk' => $jam_masuk
             ]);
         }
-
-         $durasi = floor((strtotime($jam_keluar) - strtotime($jam_masuk)) / 3600);
+        // dd('b');
+        $durasi = floor((strtotime($jam_keluar) - strtotime($jam_masuk)) / 3600);
 
 
         DB::beginTransaction();
@@ -166,7 +174,7 @@ class PresensiController extends Controller
                 // ->where('jam_masuk', "!=", '')
                 ->whereRaw('date_format(jam_masuk,\'%Y-%m-%d\') = ?', [\Carbon\Carbon::now()->format('Y-m-d')])
                 ->update([
-                    'jam_keluar' => $jam_keluar,
+                    'jam_keluar' => $dateNow,
                     'foto_keluar' => $valueFoto,
                     'durasi' => $durasi,
                     'status' => '1',
@@ -176,31 +184,77 @@ class PresensiController extends Controller
 
             DB::commit();
 
-            return redirect('/presensi/dashboard')->with('success', 'Berhasil Absen Keluar');
+            Alert::toast('Anda berhasil absen pulang!', 'success');
+            return redirect('/presensi/dashboard');
         } catch (\Throwable $th) {
-            throw $th;
-
+            //throw $th;
             DB::rollBack();
-            return redirect('/presensi/dashboard')->with('failed', 'Data Gagal ditambahkan.');
+
+            Alert::toast('Data Gagal Ditambahkan!', 'error');
+            return redirect('/presensi/dashboard');
         }
     }
 
     public function absenKeluarAwal(Request $request)
     {
-         $request->validate([
+        $request->validate([
             "catatan" => 'required',
 
         ]);
 
         $id_guru = Auth::user()->id_guru;
-        $jam_masuk = $request->jam_masuk;
-        $jam_keluar = now();
+        $jam_masuk = strtotime($request->jam_masuk);
+        $jam_masuk = date('H:i:s', $jam_masuk);
+        $jam_keluar = now()->format('H:i:s');
+        $dateNow = now();
         $catatan = $request->catatan;
         $valueFoto = $request->valueFoto;
 
-        $durasi = floor((strtotime($jam_keluar) - strtotime($jam_masuk)) / 3600);
+        // 1. cek durasi berdasarkan jadwal di hari itu
+        Carbon::setLocale('id');
+        $hari = Carbon::now()->translatedFormat('l');
+        $cekJadwal = Schedule::where('id_guru', $id_guru)
+            ->where('hari', $hari)
+            ->orderBy('id', 'ASC')
+            ->get();
+        foreach ($cekJadwal as $jadwal) {
+            $durasi = 0;
+            $jam_selesai = $jadwal->jam_selesai;
+            if ($jam_keluar > $jam_selesai) {
+                $durasi = $jadwal->durasi;
+                $durasi += $durasi;
+            }
+            elseif ($jam_keluar <= $jam_selesai) {
+                $rule = Rule::where('rule_name', 'SatJam')->first();
+                $pembagi = $rule->rule_value;
+                $durasi = (strtotime($jam_selesai) - strtotime($jam_keluar)) / $pembagi;
+                $durasi = ceil($durasi / 60);
+                $durasi += $durasi;
+            } else {
+                $durasi = 0;
+                $durasi += $durasi;
+            }
+            // $durasi++;
+        }
 
-        // dd($durasi, $jam_masuk, $jam_keluar);
+        // 2. cek durasi telat dari jadwal di hari itu
+        $cekJadwalTelat = Schedule::where('id_guru', $id_guru)
+            ->where('hari', $hari)
+            ->where('jam_mulai', '<', $jam_masuk)
+            ->orderBy('id', 'ASC')
+            ->get();
+        // dd($cekJadwalTelat);
+        foreach ($cekJadwalTelat as $jadwalTelat) {
+            // $durasiTelat = 0;
+            $jam_selesai = $jadwalTelat->jam_selesai;
+
+            if ($jam_selesai < $jam_masuk) {
+                $durasiTelat = $jadwalTelat->durasi;
+                $durasiTelat += $durasiTelat;
+            }
+        }
+        $durasiTotal = $durasi - $durasiTelat;
+dd($durasi, $durasiTelat, $durasiTotal, $cekJadwalTelat, $jam_keluar);
         DB::beginTransaction();
 
 
@@ -210,9 +264,9 @@ class PresensiController extends Controller
                 // ->where('jam_masuk', "!=", '')
                 ->whereRaw('date_format(jam_masuk,\'%Y-%m-%d\') = ?', [\Carbon\Carbon::now()->format('Y-m-d')])
                 ->update([
-                    'jam_keluar' => $jam_keluar,
+                    'jam_keluar' => $dateNow,
                     'foto_keluar' => $valueFoto,
-                    'durasi' => $durasi,
+                    'durasi' => $durasiTotal,
                     'status' => '0',
                     'catatan' => $catatan,
 
@@ -221,13 +275,14 @@ class PresensiController extends Controller
 
 
             DB::commit();
-
-            return redirect('/presensi/dashboard')->with('success', 'Berhasil Absen Keluar');
+            Alert::toast('Anda berhasil absen pulang!', 'success');
+            return redirect('/presensi/dashboard');
         } catch (\Throwable $th) {
-            throw $th;
+            //throw $th;
 
             DB::rollBack();
-            return redirect('/presensi/dashboard')->with('failed', 'Data Gagal ditambahkan.');
+            Alert::toast('Data Gagal Ditambahkan', 'error');
+            return redirect('/presensi/dashboard');
         }
     }
     /**
